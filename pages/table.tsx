@@ -93,7 +93,7 @@ export default function StickyHeadTable(props) {
           </TableHead>
           <TableBody>
             {students.map((elem, i) => (
-              <TableRow key={i}>
+              <TableRow key={i.toString()}>
                 <TableCell>{i + 1}</TableCell>
                 <TableCell>{`${elem.participant_ru} / ${elem.participant_en}`}</TableCell>
                 <TableCell>{elem.country_ru}</TableCell>
