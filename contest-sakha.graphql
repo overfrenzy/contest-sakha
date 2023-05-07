@@ -1,0 +1,94 @@
+type Participant {
+  id: Int!
+  name: String!
+  country: Country!
+  school: School!
+  participation: Participation!
+  awards: Award!
+}
+
+type Task {
+  id: Int!
+  name: String!
+  value: String!
+  solved: Boolean!
+}
+
+type Placement {
+  id: Int!
+  participant: Participant!
+  contest: Contest!
+  award: String!
+  time: Int!
+  total: Int!
+}
+
+type Country {
+  id: Int!
+  name: String!
+}
+
+type SchoolName {
+  id: Int!
+  name: String!
+}
+
+type Contest {
+  id: Int!
+  name: String!
+  year: Int!
+}
+
+type ContestTasks {
+  id: Int!
+  contestId: Int!
+  taskId: Int!
+  number: String!
+}
+
+type School {
+  id: Int!
+  schoolName: SchoolName!
+}
+
+type Participation {
+  id: Int!
+  contest: Contest!
+}
+
+type Result {
+  id: Int!
+  participant: Participant!
+  task: ContestTasks!
+  grade: Int!
+  try: Int!
+  time: Int!
+}
+
+type Award {
+  id: Int!
+  name: String!
+}
+
+type Query {
+  getParticipant(id: Int!): Participant
+  getParticipants: [Participant]
+  getTask(id: Int!): Task
+  getTasks: [Task]
+  getPlacement(id: Int!): Placement
+  getPlacements: [Placement]
+  getCountry(id: Int!): Country
+  getCountries: [Country]
+  getSchoolName(id: Int!): SchoolName
+  getSchoolNames: [SchoolName]
+  getContest(id: Int!): Contest
+  getContests: [Contest]
+  getContestTask(id: Int!): ContestTasks
+  getContestTasks: [ContestTasks]
+  getSchool(id: Int!): School
+  getSchools: [School]
+  getParticipation(id: Int!): Participation
+  getParticipations: [Participation]
+  getResult(id: Int!): Result
+  getResults: [Result]
+}

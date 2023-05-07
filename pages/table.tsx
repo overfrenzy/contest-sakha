@@ -3,23 +3,21 @@ import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import fsPromises from "fs/promises";
-import path from "path";
 import styles from "../styles/tables.module.css";
 import AppBar from "../components/AppBar1";
 import Container from "@mui/material/Container";
 
 export async function getStaticProps() {
-  const filePath = path.join(process.cwd(), "./shared/data2021.json");
-  const jsonData = await fsPromises.readFile(filePath);
-  const objectData = JSON.parse(jsonData.toString());
+  const res = await fetch(`\${process.env.NEXT_PUBLIC_API_URL}/students`)
+  const students = await res.json()
 
   return {
-    props: objectData,
-  };
+    props: {
+      students
+    }
+  }
 }
 
 interface Column {
@@ -59,8 +57,7 @@ const columns: readonly Column[] = [
   { id: "Place", label: "Место", minWidth: 5, align: "right" },
 ];
 
-export default function StickyHeadTable(props) {
-  const students = props.students;
+export default function StickyHeadTable({ students }) {
   return (
     <>
       <AppBar />
