@@ -1,10 +1,14 @@
-const { Pool } = require('pg');
+import { Pool } from 'pg';
 
 const pool = new Pool({
   connectionString: process.env.COCKROACHDB_URL,
-  ssl: {rejectUnauthorized: false,},
+  ssl: {
+    rejectUnauthorized: false
+  },
+  max: 40, // Maximum number of connections in the pool
+  keepAlive: {
+    interval: 150000 // Interval to periodically check if connections are valid
+  }
 });
 
-module.exports = {
-  query: (text, params) => pool.query(text, params),
-};
+export default pool;

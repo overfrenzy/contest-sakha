@@ -1,4 +1,5 @@
-import { Pool } from 'pg';
+import pool from '../database/database';
+//export const config = {  runtime: "edge",};
 
 export default function Db({ isConnected }) {
   return (
@@ -14,17 +15,12 @@ export default function Db({ isConnected }) {
 }
 
 export async function getServerSideProps() {
-  const pool = new Pool({
-    connectionString: process.env.COCKROACHDB_URL,
-    ssl: {rejectUnauthorized: false,},
-  });
-
-  try {
-    const client = await pool.connect();
-    client.release();
-    return { props: { isConnected: true } };
-  } catch (error) {
-    return { props: { isConnected: false } };
+    try {
+      const client = await pool.connect();
+      client.release();
+      return { props: { isConnected: true } };
+    } catch (error) {
+      return { props: { isConnected: false } };
+    }
   }
-}
 //test version 2 because version 1 is empty because db is empty

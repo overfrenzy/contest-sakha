@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { Table, TableBody, TableRow, TableCell } from '@mui/material';
+//export const config = {  runtime: "edge",};
 
 export default function Home({ data }) {
   const router = useRouter();

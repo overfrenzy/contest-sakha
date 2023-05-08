@@ -4,6 +4,7 @@ import styles from '../styles/index.module.css';
 import Container from '@mui/material/Container';
 import AppBar from '../components/AppBar1';
 import Link from 'next/link';
+//export const config = {  runtime: "edge",};
 
 export default function HomePage() {
 	return (
