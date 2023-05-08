@@ -1,5 +1,5 @@
 CREATE TABLE `Participant` (
-	`Id` INT NOT NULL,
+	`Id` INT NOT NULL AUTO_INCREMENT,
 	`Name` VARCHAR(50) NOT NULL,
 	`Country` INT NOT NULL,
 	`School` INT NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE `Participant` (
 );
 
 CREATE TABLE `Task` (
-	`Id` INT NOT NULL,
+	`Id` INT NOT NULL AUTO_INCREMENT,
 	`Name` VARCHAR(50) NOT NULL,
 	`Value` varchar(5) NOT NULL,
 	`Solved` BOOLEAN NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE `Task` (
 );
 
 CREATE TABLE `Placement` (
-	`Id` INT NOT NULL,
+	`Id` INT NOT NULL AUTO_INCREMENT,
 	`Participant` INT NOT NULL,
 	`Contest` INT NOT NULL,
 	`Award` INT NOT NULL,
@@ -27,19 +27,19 @@ CREATE TABLE `Placement` (
 );
 
 CREATE TABLE `Country` (
-	`Id` INT NOT NULL,
+	`Id` INT NOT NULL AUTO_INCREMENT,
 	`Name` varchar(50) NOT NULL,
 	PRIMARY KEY (`Id`)
 );
 
 CREATE TABLE `SchoolName` (
-	`Id` INT NOT NULL,
+	`Id` INT NOT NULL AUTO_INCREMENT,
 	`Name` varchar(50) NOT NULL,
 	PRIMARY KEY (`Id`)
 );
 
 CREATE TABLE `Contest` (
-	`Id` INT NOT NULL,
+	`Id` INT NOT NULL AUTO_INCREMENT,
 	`Name` VARCHAR(50) NOT NULL,
 	`Year` INT NOT NULL,
 	PRIMARY KEY (`Id`)
@@ -54,7 +54,7 @@ CREATE TABLE `ContestTasks` (
 );
 
 CREATE TABLE `School` (
-	`Id` INT NOT NULL,
+	`Id` INT NOT NULL AUTO_INCREMENT,
 	`SchoolName` INT NOT NULL,
 	PRIMARY KEY (`Id`)
 );
@@ -77,7 +77,7 @@ CREATE TABLE `Result` (
 
 CREATE TABLE `Award` (
 	`Id` INT NOT NULL AUTO_INCREMENT,
-	`Name` varchar(50) NOT NULL AUTO_INCREMENT,
+	`Name` varchar(50) NOT NULL,
 	PRIMARY KEY (`Id`)
 );
 
