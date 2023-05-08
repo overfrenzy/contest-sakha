@@ -1,4 +1,4 @@
-import { query } from '../../lib/db';
+import { query } from '../../database/database';
 
 export default async function handler(req, res) {
   try {
@@ -8,3 +8,4 @@ export default async function handler(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+//retrieve data from db and send a JSON response

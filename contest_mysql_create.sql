@@ -106,15 +106,3 @@ ALTER TABLE `Participation` ADD CONSTRAINT `Participation_fk0` FOREIGN KEY (`Con
 ALTER TABLE `Result` ADD CONSTRAINT `Result_fk0` FOREIGN KEY (`Participant`) REFERENCES `Participant`(`Id`);
 
 ALTER TABLE `Result` ADD CONSTRAINT `Result_fk1` FOREIGN KEY (`Task`) REFERENCES `ContestTasks`(`Id`);
-
-
-
-
-
-
-
-
-
-
-
-

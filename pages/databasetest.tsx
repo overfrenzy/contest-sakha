@@ -1,26 +1,29 @@
 import { useRouter } from 'next/router';
+import { Table, TableBody, TableRow, TableCell } from '@mui/material';
 
 export default function Home({ data }) {
   const router = useRouter();
 
   return (
-    <div>
-      {data.map((participant) => (
-        <div key={participant.id}>
-          <h2>{participant.name}</h2>
-          <h2>{participant.Country}</h2>
-          <h2>{participant.School}</h2>
-          <h2>{participant.Participation}</h2>
-          <h2>{participant.Award}</h2>
-          {/* Add more fields here */}
-        </div>
-      ))}
-    </div>
+    <Table>
+      <TableBody>
+        {data.map((participant) => (
+          <TableRow key={participant.id}>
+            <TableCell>{participant.name}</TableCell>
+            <TableCell>{participant.Country}</TableCell>
+            <TableCell>{participant.School}</TableCell>
+            <TableCell>{participant.Participation}</TableCell>
+            <TableCell>{participant.Award}</TableCell>
+            {/* Add more fields here */}
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
   );
 }
 
 export async function getServerSideProps() {
-  const res = await fetch('https://contest-sakha.pages.dev/api/data');
+  const res = await fetch('http://localhost:3000/api/data'); //https://contest-sakha.pages.dev/api/data
   const data = await res.json();
 
   return {
@@ -29,3 +32,4 @@ export async function getServerSideProps() {
     },
   };
 }
+//retrieve JSON data from the response and show it
