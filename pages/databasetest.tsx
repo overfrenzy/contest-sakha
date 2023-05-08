@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { Table, TableBody, TableRow, TableCell } from '@mui/material';
-//export const config = {  runtime: "edge",};
+export const config = {  runtime: "edge",};
 
 export default function Home({ data }) {
   const router = useRouter();
@@ -24,7 +24,7 @@ export default function Home({ data }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch('http://localhost:3000/api/data'); //https://contest-sakha.pages.dev/api/data
+  const res = await fetch('https://contest-sakha.pages.dev/api/data'); //http://localhost:3000/api/data
   const data = await res.json();
 
   return {

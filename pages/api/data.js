@@ -8,3 +8,4 @@ export default async function handler(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+//retrieve data from db and send a JSON response

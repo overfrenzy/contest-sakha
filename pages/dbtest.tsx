@@ -1,5 +1,5 @@
 import pool from '../database/database';
-//export const config = {  runtime: "edge",};
+export const config = {  runtime: "edge",};
 
 export default function Db({ isConnected }) {
   return (
